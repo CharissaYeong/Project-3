@@ -14,12 +14,18 @@
   },
   "homepage": "https://github.com/CharissaYeong/Project-3#readme",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon start",
+    "db-migrate": "node ./node_modules/db-migrate/bin/db-migrate"
   },
   "dependencies": {
+    "db-migrate": "^0.11.13",
+    "db-migrate-mysql": "^2.2.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "hbs": "^4.2.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.22",
     "wax-on": "^1.2.2"
   }
 }
