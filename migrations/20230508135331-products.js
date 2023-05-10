@@ -14,16 +14,6 @@ exports.setup = function(options, seedLink) {
   seed = seedLink;
 };
 
-// exports.up = function(db) {
-//   return db.createTable('product', {
-//       id: { type: 'int', primaryKey:true, autoIncrement:true, unsigned: true},
-//       name: { type: 'string', length:100, notNull:true },
-//       base_price: { type: 'int', unsigned: true, notNull:true }, 
-//       description:'text',
-//       stock: { type: 'int', unsigned: true, notNull:true }
-//   })
-// };
-
 exports.up = function(db) {
   return db.createTable('product', {
     id: { type: 'int', primaryKey:true, autoIncrement:true, unsigned: true},
@@ -32,7 +22,7 @@ exports.up = function(db) {
     base_price: { type: 'string', unsigned: true, notNull:true },
     option_price: 'string',
     stock: { type: 'int', unsigned: true, notNull:true },
-    created: { type: 'timestamp', defaultValue: new String('CURRENT_TIMESTAMP') },
+    // created: { type: 'timestamp', defaultValue: new String('CURRENT_TIMESTAMP') },
     modified: { type: 'timestamp', defaultValue: new String('CURRENT_TIMESTAMP') },
     last_edit: 'string'
   });

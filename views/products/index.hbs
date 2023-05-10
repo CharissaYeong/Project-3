@@ -1,0 +1,48 @@
+{{#extends 'base'}}
+
+{{#block 'content'}}
+<h1>I dunno.</h1>
+<p>List of products</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Base_price</th>
+            <th>Stock</th>
+            <th>Modified</th>
+            <th>Last_edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each products}}
+            <tr>
+                <td>
+                    {{this.id}}
+                </td>
+                <td>
+                    {{this.name}}
+                </td>
+                <td>
+                    {{this.description}}
+                </td>
+                <td>
+                    {{this.base_price}}
+                </td>
+                <td>
+                    {{this.stock}}
+                </td>
+                <td>
+                    {{this.modified}}
+                </td>
+                <td>
+                    {{this.last_edit}}
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{/block}}
+
+{{/extends}}
