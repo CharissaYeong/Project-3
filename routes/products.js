@@ -3,6 +3,7 @@ const router = express.Router(); // #1 - Create a new express Router
 
 // #1 import in the Product model
 const {Product} = require('../models')
+const { bootstrapField, createProductForm } = require('../forms');
 
 //  #2 Add a new route to the Express router
 // router.get('/', (req,res)=>{
@@ -17,8 +18,40 @@ router.get('/', async (req,res)=>{
     })
 })
 
-router.get('/create', (req,res)=>{
-    res.render('products/create')
+// router.get('/create', (req,res)=>{
+//     res.render('products/create')
+// })
+
+router.get('/create', async (req, res) => {
+    const productForm = createProductForm();
+    res.render('products/create',{
+        'form': productForm.toHTML(bootstrapField)
+    })
+})
+
+router.post('/create', async(req,res)=>{
+    const productForm = createProductForm();
+    productForm.handle(req, {
+        'success': async (form) => {
+            const product = new Product();
+            product.set('name', form.data.name);
+            product.set('base_price', form.data.base_price);
+            product.set('description', form.data.description);
+            product.set('stock', form.data.stock);
+            await product.save();
+            res.redirect('/products');
+        },
+        'empty': async (form) => {
+            res.render('products/create', {
+                'form': form.toHTML(bootstrapField)
+            })
+        },
+        'error': async (form) => {
+            res.render('products/create', {
+                'form': form.toHTML(bootstrapField)
+            })
+        }
+    })
 })
 
 module.exports = router; // #3 export out the router
