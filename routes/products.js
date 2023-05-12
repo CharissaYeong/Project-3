@@ -5,11 +5,6 @@ const router = express.Router(); // #1 - Create a new express Router
 const {Product} = require('../models')
 const { bootstrapField, createProductForm } = require('../forms');
 
-//  #2 Add a new route to the Express router
-// router.get('/', (req,res)=>{
-//     res.render('products/products')
-// })
-
 router.get('/', async (req,res)=>{
     // #2 - fetch all the products (ie, SELECT * from products)
     let products = await Product.collection().fetch();
@@ -17,10 +12,6 @@ router.get('/', async (req,res)=>{
         'products': products.toJSON() // #3 - convert collection to JSON
     })
 })
-
-// router.get('/create', (req,res)=>{
-//     res.render('products/create')
-// })
 
 router.get('/create', async (req, res) => {
     const productForm = createProductForm();
