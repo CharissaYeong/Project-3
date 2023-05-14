@@ -1,48 +1,63 @@
-{{#extends 'base'}}
+{{#extends "base"}}
 
-{{#block 'content'}}
-<h1>I dunno.</h1>
-<p>List of products</p>
-<table class="table">
-    <thead>
+  {{#block "content"}}
+    <h1>I dunno.</h1>
+    <p>List of products</p>
+    <table class="table">
+      <thead>
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Base_price</th>
-            <th>Stock</th>
-            <th>Modified</th>
-            <th>Last_edit</th>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Base_price</th>
+          <th>Stock</th>
+          <th>Modified</th>
+          <th>Last_edit</th>
+          <th></th>
         </tr>
-    </thead>
-    <tbody>
+      </thead>
+      <tbody>
         {{#each products}}
-            <tr>
-                <td>
-                    {{this.id}}
-                </td>
-                <td>
-                    {{this.name}}
-                </td>
-                <td>
-                    {{this.description}}
-                </td>
-                <td>
-                    {{this.base_price}}
-                </td>
-                <td>
-                    {{this.stock}}
-                </td>
-                <td>
-                    {{this.modified}}
-                </td>
-                <td>
-                    {{this.last_edit}}
-                </td>
-            </tr>
+          <tr>
+            <td>
+              {{this.id}}
+            </td>
+            <td>
+              {{this.name}}
+            </td>
+            <td>
+              {{this.category.name}}
+            </td>
+            <td>
+              {{this.description}}
+            </td>
+            <td>
+              {{this.base_price}}
+            </td>
+            <td>
+              {{this.stock}}
+            </td>
+            <td>
+              {{this.modified}}
+            </td>
+            <td>
+              {{this.last_edit}}
+            </td>
+            <td>
+              <a
+                href="/products/{{this.id}}/update"
+                class="btn btn-primary btn-sm"
+              >Update</a>
+              <a
+                href="/products/{{this.id}}/delete"
+                class="btn btn-danger btn-sm"
+              >Delete</a>
+            </td>
+          </tr>
         {{/each}}
-    </tbody>
-</table>
-{{/block}}
+      </tbody>
+    </table>
+  {{/block}}
 
 {{/extends}}

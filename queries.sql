@@ -4,18 +4,11 @@ FLUSH PRIVILEGES;
 
 CREATE DATABASE bakery;
 
-INSERT INTO product (name, description, base_price, stock, last_edit) VALUES
+INSERT INTO products (name, description, base_price, stock, last_edit) VALUES
 ("Test_2", "Test product 2", 3000, 0, "admin_2"),
 ("Test_3", "Test product 3", 4000, 1, "admin_3")
 
-
-
-    -- id: { type: 'int', primaryKey:true, autoIncrement:true, unsigned: true},
-    -- name: { type: 'string', length:100, notNull:true },
-    -- description: 'text',
-    -- base_price: { type: 'string', unsigned: true, notNull:true },
-    -- option_price: 'string',
-    -- stock: { type: 'int', unsigned: true, notNull:true },
-    -- created: { type: 'timestamp', defaultValue: new String('CURRENT_TIMESTAMP') },
-    -- modified: { type: 'timestamp', defaultValue: new String('CURRENT_TIMESTAMP') },
-    -- last_edit: 'string'
+INSERT INTO categories (name) VALUES
+("Bento Cakes"),
+("Design Cakes"),
+("Standard Cakes")

@@ -15,7 +15,7 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db) {
-  return db.createTable('product', {
+  return db.createTable('products', {
     id: { type: 'int', primaryKey:true, autoIncrement:true, unsigned: true},
     name: { type: 'string', length:100, notNull:true },
     description: 'text',
@@ -27,7 +27,7 @@ exports.up = function(db) {
 };
 
 exports.down = function(db) {
-  return db.dropTable('product');
+  return db.dropTable('products');
 };
 
 exports._meta = {
