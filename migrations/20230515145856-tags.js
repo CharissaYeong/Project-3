@@ -14,20 +14,16 @@ exports.setup = function(options, seedLink) {
   seed = seedLink;
 };
 
-exports.up =  function(db) {
-  return db.addForeignKey('products', 'categories', 'product_category_fk',
-       {
-        "category_id":"id"
-      },
-       {
-            onDelete: 'CASCADE',
-            onUpdate: 'RESTRICT'
-       })
-}
+exports.up = function(db) {
+  return db.createTable('tags', {
+      id: { type: 'int', primaryKey:true, autoIncrement:true, unsigned:true},
+      name: { type: 'string', length:100},
+  })
+};
 
 exports.down = function(db) {
-   db.removeForeignKey("products", "product_category_fk");
-}
+  return db.dropTable('tags');
+};
 
 exports._meta = {
   "version": 1

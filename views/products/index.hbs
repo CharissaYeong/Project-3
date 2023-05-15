@@ -10,6 +10,7 @@
           <th>Name</th>
           <th>Category</th>
           <th>Description</th>
+          <th>Tags</th>
           <th>Base_price</th>
           <th>Stock</th>
           <th>Modified</th>
@@ -31,6 +32,11 @@
             </td>
             <td>
               {{this.description}}
+            </td>
+            <td>
+              {{#each this.tags}}
+                <span class="badge bg-secondary">{{this.name}}</span>
+              {{/each}}
             </td>
             <td>
               {{this.base_price}}

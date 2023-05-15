@@ -12,3 +12,8 @@ INSERT INTO categories (name) VALUES
 ("Bento Cakes"),
 ("Design Cakes"),
 ("Standard Cakes")
+
+INSERT INTO tags (name) VALUES
+("Eggless"),
+("Less sweet"),
+("Dairy free")
