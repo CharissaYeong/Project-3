@@ -48,7 +48,6 @@ router.post("/create", async (req, res) => {
       // product.set("base_price", form.data.base_price);
       // product.set("description", form.data.description);
       // product.set("stock", form.data.stock);
-      // product.set('modified', new Date().toISOString());
       await product.save();
       if (tags) {
         await product.tags().attach(tags.split(","));
@@ -124,6 +123,7 @@ router.post("/:product_id/update", async (req, res) => {
   productForm.handle(req, {
     success: async (form) => {
       let { tags, ...productData } = form.data;
+      productData.modified = moment().tz('Asia/Singapore').toDate()
       product.set(productData);
       // product.set('modified', new Date().toISOString());
 
